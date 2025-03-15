@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from core.database import Base, engine
-from routes import auth
+from app.core.database import Base, engine
+from app.routes import auth, expenses
 import uvicorn
 
 app = FastAPI(
@@ -11,6 +11,7 @@ app = FastAPI(
 Base.metadata.create_all(bind=engine)
 
 app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
+app.include_router(expenses.router, prefix="/expenses", tags=["Expenses"])
 
 @app.get("/")
 async def root():
@@ -18,5 +19,5 @@ async def root():
 
 
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
