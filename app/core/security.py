@@ -1,6 +1,6 @@
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
-from jose import jwt, JWTError
+import jwt
 
 SECRET_KEY = "jLy5Gc&pK3$E8kPf"
 ALGORITHM = "HS256"
