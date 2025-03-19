@@ -12,7 +12,7 @@ This is a FastAPI application that allows users to track their expenses. Users c
    ```
 3. Install the required dependencies:
    ```bash
-   pip install fastapi uvicorn sqlalchemy pydantic python-jose python-multipart
+   pip install -r requirements.txt
    ```
 4. Run the application:
    ```bash
